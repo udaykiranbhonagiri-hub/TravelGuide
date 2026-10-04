@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore India through thoughtful, AI-assisted travel guides.">
+    <title>Roam India | Your travel companion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <style>
+      :root { --ink: #193432; --muted: #61716f; --cream: #f9f7ef; --paper: #fffefa; --orange: #de642d; --orange-dark: #b8491c; --line: #dde4dc; --shadow: 0 18px 45px rgba(25, 52, 50, .10); }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--cream); color: var(--ink); font-family: "DM Sans", sans-serif; line-height: 1.5; }
+      button, input, select { font: inherit; }
+      button { cursor: pointer; }
+      button:focus-visible, input:focus-visible, select:focus-visible, [role="button"]:focus-visible { outline: 3px solid #f5a664; outline-offset: 3px; }
+      .site-header { position: sticky; top: 0; z-index: 10; background: rgba(249,247,239,.88); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(25,52,50,.09); }
+      .header-inner, main { width: min(1180px, calc(100% - 40px)); margin: auto; }
+      .header-inner { min-height: 76px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+      .brand { color: var(--ink); display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: Fraunces, Georgia, serif; font-size: 1.28rem; font-weight: 700; }
+      .brand-mark { display: grid; width: 36px; height: 36px; place-items: center; color: white; background: var(--orange); border-radius: 50% 50% 50% 9px; transform: rotate(-15deg); font-family: sans-serif; font-size: 1.1rem; }
+      nav { display: flex; align-items: center; gap: 22px; font-size: .9rem; font-weight: 600; }
+      nav a { color: var(--muted); text-decoration: none; } nav a:hover { color: var(--orange-dark); }
+      .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(30px, 7vw, 90px); align-items: center; padding: clamp(60px, 10vw, 112px) 0 78px; }
+      .eyebrow { color: var(--orange-dark); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+      h1, h2, h3, p { margin-top: 0; }
+      h1, h2, h3 { font-family: Fraunces, Georgia, serif; line-height: 1.08; }
+      h1 { max-width: 670px; margin: 14px 0 20px; font-size: clamp(3.05rem, 6vw, 5.5rem); letter-spacing: -.055em; }
+      h1 em { color: var(--orange); font-style: normal; }
+      .hero-copy { max-width: 550px; color: var(--muted); font-size: 1.05rem; }
+      .hero-note { display: flex; align-items: center; gap: 10px; margin-top: 28px; color: var(--ink); font-size: .88rem; font-weight: 600; }.avatars { display: flex; }.avatar { width: 26px; height: 26px; margin-left: -5px; border: 2px solid var(--cream); border-radius: 50%; background: #e8ad7e; }.avatar:first-child { margin-left: 0; background: #829e8c; }.avatar:last-child { background: #e9cc7c; }
+      .hero-art { position: relative; min-height: 405px; border-radius: 180px 180px 20px 20px; overflow: hidden; background: #d6e0c7; box-shadow: var(--shadow); }.hero-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(25,52,50,.34)); }.hero-art img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }.art-label { position: absolute; bottom: 26px; left: 28px; z-index: 1; color: white; text-shadow: 0 2px 15px rgba(0,0,0,.5); }.art-label strong { display: block; font-family: Fraunces, Georgia, serif; font-size: 1.65rem; }.art-label span { font-size: .84rem; }
+      .discover { padding: 25px 0 88px; }.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 28px; }.section-heading h2 { max-width: 560px; margin: 7px 0 0; font-size: clamp(2rem, 4vw, 3.1rem); letter-spacing: -.045em; }.result-count { color: var(--muted); font-size: .9rem; white-space: nowrap; }
+      .search-wrap { position: relative; max-width: 460px; margin-bottom: 33px; }.search-wrap span { position: absolute; top: 50%; left: 17px; color: var(--muted); transform: translateY(-50%); }.search-wrap input { width: 100%; padding: 14px 18px 14px 46px; border: 1px solid var(--line); border-radius: 14px; outline: none; background: var(--paper); color: var(--ink); box-shadow: 0 4px 15px rgba(25,52,50,.03); }.search-wrap input:focus { border-color: var(--orange); }
+      .destination-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }.destination-card { overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }.destination-card:hover { border-color: #e4bda9; box-shadow: var(--shadow); transform: translateY(-5px); }.destination-card > img { display: block; width: 100%; height: 185px; object-fit: cover; }.card-content { padding: 21px; }.card-content h3 { margin: 7px 0 4px; font-size: 1.45rem; letter-spacing: -.03em; }.card-content p { color: var(--muted); font-size: .89rem; }.card-content .city { margin-bottom: 12px; color: var(--orange-dark); font-size: .8rem; font-weight: 700; }.card-action { display: inline-block; margin-top: 2px; color: var(--ink); font-size: .85rem; font-weight: 700; }.card-action span { color: var(--orange); font-size: 1.2em; }.empty-state { padding: 48px 25px; border: 1px dashed #b9c8b7; border-radius: 16px; text-align: center; color: var(--muted); background: rgba(255,255,255,.4); }
+      .guide-panel { display: grid; grid-template-columns: .75fr 1.25fr; gap: 0; margin: 4px 0 94px; overflow: hidden; border-radius: 22px; background: var(--ink); box-shadow: var(--shadow); }.guide-visual { position: relative; min-height: 580px; }.guide-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.52)); }.guide-visual img { width: 100%; height: 100%; position: absolute; object-fit: cover; }.place-meta { position: absolute; z-index: 1; bottom: 27px; left: 27px; color: white; }.place-meta h2 { margin: 6px 0 3px; font-size: 2.15rem; letter-spacing: -.04em; }.place-meta p { margin: 0; opacity: .85; font-size: .88rem; }.guide-form { position: relative; padding: clamp(27px, 5vw, 48px); color: #f5f1e7; }.close-guide { position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; color: white; background: transparent; font-size: 1.3rem; line-height: 1; }.close-guide:hover { background: rgba(255,255,255,.12); }.guide-form h2 { margin: 8px 40px 8px 0; font-size: clamp(1.9rem, 3vw, 2.7rem); letter-spacing: -.04em; }.form-intro { max-width: 550px; margin-bottom: 27px; color: #c6d0c7; font-size: .93rem; }.control-group { margin-top: 24px; }.control-group > label, .control-title { display: block; margin-bottom: 9px; color: #cbd6cb; font-size: .76rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }.choice-row { display: flex; gap: 10px; }.choice { flex: 1; padding: 12px 11px; border: 1px solid rgba(255,255,255,.2); border-radius: 11px; color: #e6ece5; background: rgba(255,255,255,.06); text-align: left; transition: background .18s, border .18s; }.choice:hover, .choice.is-selected { border-color: #ef9a71; background: rgba(222,100,45,.28); }.choice strong { display: block; font-size: .88rem; }.choice small { color: #c0cdc0; font-size: .73rem; }.select-wrap select { width: 100%; padding: 13px 15px; border: 1px solid rgba(255,255,255,.22); border-radius: 11px; outline: none; color: #f8f5ed; background: #294543; }.primary-button { width: 100%; display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 30px; padding: 15px; border: 0; border-radius: 11px; color: white; background: var(--orange); font-weight: 700; transition: transform .2s, background .2s; }.primary-button:hover:not(:disabled) { background: var(--orange-dark); transform: translateY(-2px); }.primary-button:disabled { cursor: wait; opacity: .76; }.spinner { width: 15px; height: 15px; border: 2px solid rgba(255,255,255,.5); border-top-color: white; border-radius: 50%; animation: spin .7s linear infinite; }.generation-status { min-height: 1.3em; margin: 11px 0 0; color: #d8e0d6; font-size: .82rem; text-align: center; }.guide-result { margin-top: 27px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,.16); }.guide-result h3 { margin-bottom: 9px; font-size: 1.25rem; }.audio-message { margin: 0 0 12px; color: #cbd6cb; font-size: .84rem; }.guide-result audio { width: 100%; margin-bottom: 18px; }.transcript { max-height: 230px; margin: 0; overflow-y: auto; padding-right: 10px; color: #e1e7df; font-size: .9rem; line-height: 1.75; white-space: pre-line; }.transcript::-webkit-scrollbar { width: 6px; }.transcript::-webkit-scrollbar-thumb { background: #60776d; border-radius: 6px; }
+      footer { padding: 26px 0 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }.footer-inner { display: flex; justify-content: space-between; gap: 20px; }.footer-inner strong { color: var(--ink); }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @media (max-width: 820px) { .hero { grid-template-columns: 1fr; padding-top: 54px; }.hero-art { min-height: 340px; max-width: 560px; }.destination-grid { grid-template-columns: repeat(2, 1fr); }.guide-panel { grid-template-columns: 1fr; }.guide-visual { min-height: 300px; }.guide-form { padding: 32px 25px; } }
+      @media (max-width: 560px) { .header-inner, main { width: min(100% - 30px, 1180px); }.header-inner { min-height: 65px; }.brand { font-size: 1.12rem; }.brand-mark { width: 31px; height: 31px; } nav { gap: 12px; font-size: .8rem; } .hero { padding-bottom: 50px; } h1 { font-size: 2.85rem; }.section-heading { align-items: start; flex-direction: column; }.destination-grid { grid-template-columns: 1fr; }.destination-card { display: grid; grid-template-columns: 118px 1fr; }.destination-card > img { height: 100%; min-height: 173px; }.card-content { padding: 17px; }.card-content h3 { font-size: 1.25rem; }.card-content p:not(.city) { display: none; }.guide-visual { min-height: 250px; }.choice-row { flex-direction: column; }.choice { text-align: left; }.footer-inner { flex-direction: column; } }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="Roam India home"><span class="brand-mark" aria-hidden="true">⌁</span> Roam India</a>
+        <nav aria-label="Primary navigation"><a href="#destinations">Destinations</a><a href="#destinations">Create a guide</a></nav>
+      </div>
+    </header>
+    <main id="top">
+      <section class="hero" aria-labelledby="heroTitle">
+        <div>
+          <span class="eyebrow">Stories beyond the map</span>
+          <h1 id="heroTitle">Travel deeper. <em>Feel closer.</em></h1>
+          <p class="hero-copy">Choose a remarkable place and receive a clear, beautifully paced guide in the language and detail level that feels right for your journey.</p>
+          <div class="hero-note"><div class="avatars" aria-hidden="true"><span class="avatar"></span><span class="avatar"></span><span class="avatar"></span></div><span>Made for curious travellers</span></div>
+        </div>
+        <div class="hero-art" aria-label="The Taj Mahal at sunset"><img src="https://s3.ap-south-1.amazonaws.com/new-assets.ccbp.in/frontend/loading-data/niat-course-projects/Taj_Mahal_%28Edited%29.jpeg" alt="The Taj Mahal"><div class="art-label"><strong>Travel with context</strong><span>Every landmark has a story.</span></div></div>
+      </section>
+      <section class="discover" id="destinations" aria-labelledby="destinationsTitle">
+        <div class="section-heading"><div><span class="eyebrow">Begin your journey</span><h2 id="destinationsTitle">Discover a place worth lingering in.</h2></div><p class="result-count" id="resultCount" aria-live="polite"></p></div>
+        <div class="search-wrap"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" autocomplete="off" placeholder="Search a destination or city" aria-label="Search destinations"></div>
+        <div class="destination-grid" id="destinationCards"></div>
+        <div class="empty-state" id="emptyState" hidden><strong>No place found</strong><p>Try a landmark or city such as “Agra” or “Jaipur”.</p></div>
+      </section>
+      <section class="guide-panel" id="guidePanel" aria-live="polite" hidden>
+        <div class="guide-visual"><img id="guideImage" src="" alt=""><div class="place-meta"><span class="eyebrow" style="color:#ffd5c2">Your selected destination</span><h2 id="guidePlace"></h2><p id="guideCity"></p></div></div>
+        <div class="guide-form" id="how-it-works">
+          <button class="close-guide" id="closeGuide" type="button" aria-label="Close guide panel">×</button>
+          <span class="eyebrow" style="color:#f19a71">Personalise your guide</span><h2>Make the journey yours.</h2><p class="form-intro">Choose how you want to explore. Your guide will include a readable transcript, and an audio version when audio is configured.</p>
+          <div class="control-group"><span class="control-title">Guide depth</span><div class="choice-row"><button class="choice is-selected" type="button" data-choice="length" data-value="Summary" aria-pressed="true"><strong>Quick overview</strong><small>About 1 minute</small></button><button class="choice" type="button" data-choice="length" data-value="Detailed" aria-pressed="false"><strong>Detailed story</strong><small>About 3 minutes</small></button></div></div>
+          <div class="control-group"><label for="selectLanguage">Language</label><div class="select-wrap"><select id="selectLanguage"><option>English</option><option>Hindi</option><option>Tamil</option><option>Telugu</option></select></div></div>
+          <div class="control-group"><span class="control-title">Narrator voice</span><div class="choice-row"><button class="choice is-selected" type="button" data-choice="voice" data-value="Male" aria-pressed="true"><strong>Male voice</strong><small>Warm and clear</small></button><button class="choice" type="button" data-choice="voice" data-value="Female" aria-pressed="false"><strong>Female voice</strong><small>Warm and clear</small></button></div></div>
+          <button class="primary-button" id="generateBtn" type="button">Generate guide <span aria-hidden="true">→</span></button><p class="generation-status" id="generationStatus" aria-live="polite"></p>
+          <div class="guide-result" id="guideResult" hidden><h3>Your guide</h3><p class="audio-message" id="audioMessage" hidden>The transcript is ready. Audio needs a configured Murf API key.</p><audio id="audioPlayer" controls hidden></audio><p class="transcript" id="transcriptText"></p></div>
+        </div>
+      </section>
+    </main>
+    <footer><div class="header-inner footer-inner"><span><strong>Roam India</strong> — travel with more meaning.</span><span>Made for the places you remember.</span></div></footer>
+    <script src="/assets/index.js" defer></script>
+  </body>
+</html>
