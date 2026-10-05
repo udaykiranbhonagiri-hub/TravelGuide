@@ -1,32 +1,54 @@
-# Roam India
+# Travel Guide
 
-A responsive travel-guide website with a Flask API. Visitors can search destinations, choose a language and narration style, and generate a written guide. Audio is available when a Murf API key is configured.
+An AI-powered travel companion that helps users explore popular destinations and generate personalized audio travel guides.
 
-## Run locally
+## Features
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-python Backend/app.py
-```
+- Explore popular Indian destinations
+- Search for destinations
+- Generate AI-powered destination descriptions
+- Choose Summary or Detailed guide
+- Generate audio travel guides
+- Select English, Hindi, Tamil, or Telugu
+- Select male or female voice
+- Read the generated transcript
+- Responsive frontend for desktop and mobile
 
-Open <http://127.0.0.1:5000> in a browser. Do not open the HTML file directly: the guide generator needs the Flask server.
+## Tech Stack
 
-## Optional AI services
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
+- Tailwind CSS
 
-The site works without API keys using local guide text. To enable live descriptions and audio, set environment variables before starting the server:
+### Backend
+- Python
+- Flask
+- Flask-CORS
 
-```powershell
-$env:GEMINI_API_KEY = "your-gemini-key"
-$env:MURF_API_KEY = "your-murf-key"
-python Backend/app.py
-```
+### AI Services
+- Google Gemini
+- Murf AI
 
-Never commit API keys to this repository. If keys were previously added to a file or commit, rotate them in the provider dashboards.
+### Deployment
+- Frontend: Vercel
+- Backend: Render
 
-## Endpoints
+## Project Structure
 
-- `GET /` — application
-- `GET /health` — service status
-- `POST /generate-audio-guide` — creates a guide
+```text
+TravelGuide/
+│
+├── Backend/
+│   └── app.py
+│
+├── Frontend/
+│   ├── index.html
+│   └── index.js
+│
+├── requirements.txt
+├── Procfile
+├── .env.example
+├── .gitignore
+└── README.md
